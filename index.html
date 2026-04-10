@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Portfolio de Yann Iacopucci — Étudiant en BUT MMI, design graphique & direction artistique.">
+  <title>Yann Iacopucci</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+
+
+  <!-- ================================================================
+       NAVIGATION — Menu overlay plein écran
+       ================================================================ -->
+  <header class="site-header" id="site-header">
+    <a href="#accueil" class="header__logo">Y<span class="header__logo-accent">.</span>I</a>
+
+    <div class="header__actions">
+      <button class="theme-toggle" id="theme-toggle" aria-label="Changer le thème">
+        <span class="theme-toggle__icon" id="theme-toggle-icon">☀</span>
+      </button>
+      <button class="menu-btn" id="menu-btn" aria-label="Menu">
+        <span class="menu-btn__text" id="menu-btn-text">menu</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Overlay menu -->
+  <nav class="menu-overlay" id="menu-overlay">
+    <ul class="menu-overlay__list">
+      <li class="menu-overlay__item">
+        <a href="#accueil" class="menu-overlay__link" data-section="accueil">
+          <span class="menu-overlay__num">01</span>
+          <span class="menu-overlay__label">Accueil</span>
+        </a>
+      </li>
+      <li class="menu-overlay__item">
+        <a href="galerie.html" class="menu-overlay__link" data-section="galerie">
+          <span class="menu-overlay__num">02</span>
+          <span class="menu-overlay__label">Galerie</span>
+        </a>
+      </li>
+      <li class="menu-overlay__item">
+        <a href="#travaux" class="menu-overlay__link" data-section="travaux">
+          <span class="menu-overlay__num">03</span>
+          <span class="menu-overlay__label">Sélection</span>
+        </a>
+      </li>
+      <li class="menu-overlay__item">
+        <a href="#a-propos" class="menu-overlay__link" data-section="a-propos">
+          <span class="menu-overlay__num">04</span>
+          <span class="menu-overlay__label">À propos</span>
+        </a>
+      </li>
+      <li class="menu-overlay__item">
+        <a href="#contact" class="menu-overlay__link" data-section="contact">
+          <span class="menu-overlay__num">05</span>
+          <span class="menu-overlay__label">Contact</span>
+        </a>
+      </li>
+    </ul>
+    <div class="menu-overlay__footer">
+      <a href="mailto:yanniacopucci@gmail.com">yanniacopucci@gmail.com</a>
+      <div class="menu-overlay__socials">
+        <a href="https://www.linkedin.com/in/yann-iacopucci-1a26ba2b7/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.instagram.com/44pucci/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- ================================================================
+       SECTION 1 — HERO / ACCUEIL
+       Grand titre typographique avec mélange serif/sans et disposition éclatée
+       ================================================================ -->
+  <section class="hero" id="accueil">
+    <!-- Texte vertical (Index) -->
+    <div class="hero__vertical-index anim-reveal">
+      <span>INDEX — VOL. 01 / SCROLL TO EXPLORE</span>
+    </div>
+
+
+
+    <div class="hero__layout">
+      <!-- Colonne gauche : texte principal et grille Manifesto -->
+      <div class="hero__left">
+        <h1 class="hero__title">
+          <span class="hero__line anim-reveal"><span class="hero__line-inner">Yann</span></span>
+          <span class="hero__line hero__line--serif anim-reveal"><span class="hero__line-inner">Iacopucci</span></span>
+        </h1>
+
+        <div class="hero__intro anim-reveal">
+          <p class="hero__intro-text">
+            Sélection 2026/2028<br>
+            <i>Recherche d'alternance graphisme, communication</i> & <i>audiovisuel</i><br>
+            Basé à Paris & Troyes, FR.
+          </p>
+        </div>
+      </div>
+
+      <!-- Colonne droite : Interactive Moodboard -->
+      <div class="hero__right anim-reveal">
+
+        <!-- Rotating badge -->
+        <div class="hero__badge">
+          <svg viewBox="0 0 100 100" width="140" height="140">
+            <path id="circlePath" d="M 50, 50 m -38, 0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0" fill="transparent" />
+            <text font-family="var(--f-sans)" fill="var(--c-text)" font-size="10" font-weight="700"
+              text-transform="uppercase" letter-spacing="2">
+              <textPath href="#circlePath" startOffset="0%">✦ DISPONIBLE POUR ALTERNANCE ✦^^
+              </textPath>
+            </text>
+          </svg>
+        </div>
+
+        <!-- Composition images (Draggables) -->
+        <div class="hero__comp" id="draggable-zone">
+          <div class="hero__comp-img hero__comp-img--portrait draggable">
+            <img src="assets/img/marty4.jpg" alt="Affiche Marty" loading="eager" draggable="false">
+          </div>
+          <div class="hero__comp-img hero__comp-img--landscape draggable">
+            <img src="assets/img/threshold1.jpg" alt="Projet Threshold I" loading="eager" draggable="false">
+          </div>
+          <div class="hero__comp-img hero__comp-img--square draggable">
+            <img src="assets/img/bitume caviar.jpg" alt="Cover Bitume Caviar" loading="eager" draggable="false">
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Marquee défilant en bas du hero -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span class="marquee__text">Graphisme ✦ Identité visuelle ✦ Audiovisuel ✦ Communication ✦ Crochet
+          ✦ Photographie ✦ </span>
+        <span class="marquee__text">Graphisme ✦ Identité visuelle ✦ Audiovisuel ✦ Communication ✦ Crochet
+          ✦ Photographie ✦ </span>
+      </div>
+  </section>
+
+
+  <!-- ================================================================
+       SECTION 2 — À PROPOS
+       Mise en page asymétrique, gros numéro éditorial, colonnes décalées
+       ================================================================ -->
+  <section class="about" id="a-propos">
+    <div class="about__layout">
+      <!-- Grand numéro éditorial -->
+      <span class="about__big-number" aria-hidden="true">02</span>
+
+      <div class="about__col about__col--left">
+
+
+        <h2 class="section-title anim-reveal">
+          <span class="section-title__line">À</span>
+          <span class="section-title__line section-title__line--serif">propos</span>
+        </h2>
+
+        <p class="about__intro anim-reveal">
+          Je suis Yann, étudiant en première année de BUT&nbsp;MMI à l'IUT de Troyes.
+          Passionné par le design graphique, l'identité visuelle et la direction artistique,
+          je cherche à créer des visuels qui racontent une histoire, à travers des affiches qui expriment ma créativité.
+          Je recherche un contrat d'alternance de 2 ans, pour mettre en développer mes compétences créatives et
+          techniques au sein
+          d'une talentueuse equipe, à Troyes ou Paris.
+          Toujours curieux, j'aime travailler en équipe et je suis à la recherche de nouveaux défis !
+        </p>
+        <p class="about__body anim-reveal">
+          J'aime explorer tous les types de designs, mes affiches sont spécialisées dans l'utilisation de l'effet
+          threshold.
+          En dehors du graphisme, je m'intéresse à la photographie, au crochet, à la 3D et au motion design.
+        </p>
+
+        <!-- Compétences & Outils déplacés sous le texte -->
+        <div class="about__skills-block anim-reveal">
+          <h3 class="about__label">Compétences</h3>
+          <div class="about__tags">
+            <span class="tag tag--magnetic">Identité visuelle</span>
+            <span class="tag tag--magnetic">Typographie</span>
+            <span class="tag tag--magnetic">Mise en page</span>
+            <span class="tag tag--magnetic">Photomontage</span>
+            <span class="tag tag--magnetic">Affiches</span>
+            <span class="tag tag--magnetic">Motion Design</span>
+          </div>
+        </div>
+
+        <div class="about__skills-block anim-reveal">
+          <h3 class="about__label">Outils</h3>
+          <div class="about__tags">
+            <span class="tag tag--magnetic">Photoshop</span>
+            <span class="tag tag--magnetic">Illustrator</span>
+            <span class="tag tag--magnetic">Lightroom</span>
+            <span class="tag tag--magnetic">Canva</span>
+            <span class="tag tag--magnetic">CapCut</span>
+            <span class="tag tag--magnetic">After Effects</span>
+            <span class="tag tag--magnetic">HTML / CSS / JS</span>
+          </div>
+        </div>
+
+        <div class="about__cta anim-reveal">
+          <a href="#contact" class="link-arrow">Travaillons ensemble !<span class="link-arrow__icon">→</span></a>
+        </div>
+      </div>
+
+      <div class="about__col about__col--right">
+        <!-- CV Preview avec lightbox -->
+        <div class="cv-preview anim-reveal" id="cv-preview">
+          <h3 class="about__label">Mon CV</h3>
+          <div class="cv-preview__frame" id="cv-open-lightbox" role="button" tabindex="0"
+            aria-label="Voir le CV en grand">
+            <img src="assets/img/Yann_Iacopucci_CV.pdf.png" alt="CV de Yann Iacopucci" class="cv-preview__img"
+              loading="lazy">
+            <div class="cv-preview__overlay">
+              <span class="cv-preview__zoom-icon">⤢</span>
+              <span class="cv-preview__zoom-text">Agrandir</span>
+            </div>
+          </div>
+          <a href="assets/img/Yann_Iacopucci_CV.pdf" download class="cv-download-btn" id="cv-download-btn">
+            <span class="cv-download-btn__icon">↓</span>
+            <span class="cv-download-btn__text">Télécharger le CV</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================================================================
+       SECTION 3 — TRAVAUX
+       Scroll horizontal pour la galerie de projets + projet vedette
+       ================================================================ -->
+  <section class="works" id="travaux">
+
+    <!-- En-tête -->
+    <div class="works__header">
+      <span class="works__big-number" aria-hidden="true">03</span>
+      <h2 class="section-title anim-reveal">
+        <span class="section-title__line">Travaux</span>
+        <span class="section-title__line section-title__line--serif">sélectionnés</span>
+      </h2>
+      <p class="works__subtitle anim-reveal">Voici une sélection de mes plus beaux projets !!</p>
+    </div>
+
+    <!-- ===== SCROLL HORIZONTAL GALLERY ===== -->
+    <div class="hscroll" id="hscroll">
+      <div class="hscroll__track" id="hscroll-track">
+
+
+
+        <!-- Projet 1 — VEDETTE (plus grand) -->
+        <article class="hscroll__card hscroll__card--featured">
+          <div class="hscroll__card-img">
+            <img src="assets/img/kalika.jpg" alt="Affiche Kalika" loading="lazy">
+            <span class="hscroll__badge">★ Vedette</span>
+          </div>
+          <div class="hscroll__card-info">
+            <span class="hscroll__card-num">01</span>
+            <h3 class="hscroll__card-title">Kalika</h3>
+            <p class="hscroll__card-cat">Affiche</p>
+            <p class="hscroll__card-desc">Projet personnel. Composition d'une affiche de l'artiste Kalika, inspirée de
+              thèmes fantasy/médiéval.</p>
+            <span class="hscroll__card-year">2026</span>
+          </div>
+        </article>
+
+        <!-- Projet 2 -->
+        <article class="hscroll__card">
+          <div class="hscroll__card-img">
+            <img src="assets/img/ino.jpg" alt="Affiche Ino" loading="lazy">
+          </div>
+          <div class="hscroll__card-info">
+            <span class="hscroll__card-num">02</span>
+            <h3 class="hscroll__card-title">Ino Casablanca</h3>
+            <p class="hscroll__card-cat">Affiche</p>
+            <p class="hscroll__card-desc">Projet personnel. Composition d'une affiche de l'artiste Ino Casablanca,
+              inspiré du manga JoJo's Bizarre adventure.</p>
+            <span class="hscroll__card-year">2026</span>
+          </div>
+        </article>
+
+        <!-- Projet 3 -->
+        <article class="hscroll__card">
+          <div class="hscroll__card-img">
+            <img src="assets/img/jolagiorno.jpg" alt="Affiche Jolagreen23" loading="lazy">
+          </div>
+          <div class="hscroll__card-info">
+            <span class="hscroll__card-num">03</span>
+            <h3 class="hscroll__card-title">Jolagreen23</h3>
+            <p class="hscroll__card-cat">Affiche</p>
+            <p class="hscroll__card-desc">Projet personnel. Création d'une affiche sur l'artiste Jolagreen23, inspiré du
+              Japon.</p>
+            <span class="hscroll__card-year">2026</span>
+          </div>
+        </article>
+
+        <!-- Projet 4 -->
+        <article class="hscroll__card">
+          <div class="hscroll__card-img">
+            <img src="assets/img/theodorajojo.jpg" alt="Affiche Theodora" loading="lazy">
+          </div>
+          <div class="hscroll__card-info">
+            <span class="hscroll__card-num">04</span>
+            <h3 class="hscroll__card-title">Theodora</h3>
+            <p class="hscroll__card-cat">Affiche</p>
+            <p class="hscroll__card-desc">Projet personnel. Création d'une affiche sur l'artiste Theodora, inspiré de
+              JoJo's Bizarre adventure.</p>
+            <span class="hscroll__card-year">2026</span>
+          </div>
+        </article>
+
+        <!-- Projet 5 -->
+        <article class="hscroll__card">
+          <div class="hscroll__card-img">
+            <img src="assets/img/chancekoaffiche.jpg" alt="Affiche Chanceko" loading="lazy">
+          </div>
+          <div class="hscroll__card-info">
+            <span class="hscroll__card-num">05</span>
+            <h3 class="hscroll__card-title">Chanceko</h3>
+            <p class="hscroll__card-cat">Affiche</p>
+            <p class="hscroll__card-desc">Projet personnel. Création d'une affiche sur l'artiste Chanceko, inspiré du
+              western.</p>
+            <span class="hscroll__card-year">2026</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- Barre de progression scroll -->
+    <div class="hscroll__progress-wrap">
+      <div class="hscroll__progress-bar" id="hscroll-progress"></div>
+    </div>
+
+    <!-- Indicateur drag -->
+    <div class="hscroll__drag-hint" id="hscroll-drag-hint">
+      <span>← Glisser pour explorer →</span>
+    </div>
+
+    <div class="works__cta anim-reveal" style="text-align: center; margin-top: 4rem;">
+      <a href="galerie.html" class="link-arrow link-arrow--btn">Voir tous mes projets <span
+          class="link-arrow__icon">→</span></a>
+    </div>
+  </section>
+
+
+  <!-- ================================================================
+       SECTION 4 — CONTACT
+       Grande typo + formulaire décalé
+       ================================================================ -->
+  <section class="contact" id="contact">
+    <!-- Floating background grid -->
+    <div class="contact__float-bg" aria-hidden="true">
+      <img src="assets/img/ino.jpg" class="contact__float-img float-1" alt="">
+      <img src="assets/img/threshold1.jpg" class="contact__float-img float-2" alt="">
+      <img src="assets/img/kalika.jpg" class="contact__float-img float-3" alt="">
+      <img src="assets/img/Theodora2.jpg" class="contact__float-img float-4" alt="">
+    </div>
+
+    <div class="contact__layout">
+      <span class="contact__big-number" aria-hidden="true">04</span>
+
+      <div class="contact__left">
+        <h2 class="contact__title anim-reveal">
+          <span class="contact__title-line">Discutons</span>
+          <span class="contact__title-line contact__title-line--serif">ensemble.</span>
+        </h2>
+        <p class="contact__text anim-reveal">
+          Un projet, une collaboration, une alternance ou juste envie de parler design&nbsp;? Écrivez-moi ou retrouvez
+          mes réseaux juste en bas.
+        </p>
+        <ul class="contact__links anim-reveal">
+          <li><a href="mailto:yanniacopucci@gmail.com" class="link-arrow">yanniacopucci@gmail.com <span
+                class="link-arrow__icon">→</span></a></li>
+          <li><a href="https://www.linkedin.com/in/yann-iacopucci-1a26ba2b7/" target="_blank" rel="noopener"
+              class="link-arrow">LinkedIn <span class="link-arrow__icon">↗</span></a></li>
+          <li><a href="https://www.instagram.com/44pucci/" target="_blank" rel="noopener"
+              class="link-arrow">Instagram<span class="link-arrow__icon">↗</span></a></li>
+        </ul>
+      </div>
+
+      <div class="contact__right">
+        <form class="contact__form" id="contact-form" action="#" method="POST">
+          <div class="form-field form-field--float anim-reveal">
+            <input type="text" id="form-name" name="name" placeholder=" " required>
+            <label for="form-name">Nom</label>
+          </div>
+          <div class="form-field form-field--float anim-reveal">
+            <input type="email" id="form-email" name="email" placeholder=" " required>
+            <label for="form-email">Email</label>
+          </div>
+          <div class="form-field form-field--float anim-reveal">
+            <textarea id="form-message" name="message" rows="5" placeholder=" " required></textarea>
+            <label for="form-message">Message</label>
+          </div>
+          <button type="submit" class="btn-send anim-reveal" id="btn-send">
+            <span class="btn-send__text">Envoyer</span>
+            <span class="btn-send__icon">→</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================================================================
+       CV LIGHTBOX — Affichage plein écran du CV
+       ================================================================ -->
+  <div class="cv-lightbox" id="cv-lightbox" role="dialog" aria-modal="true" aria-label="CV en grand">
+    <div class="cv-lightbox__backdrop" id="cv-lightbox-backdrop"></div>
+    <div class="cv-lightbox__inner">
+      <div class="cv-lightbox__img-wrap">
+        <img src="assets/img/Yann_Iacopucci_CV.pdf.png" alt="CV de Yann Iacopucci" id="cv-lb-img">
+      </div>
+      <div class="cv-lightbox__actions">
+        <a href="assets/img/Yann_Iacopucci_CV.pdf" download class="cv-lightbox__download-btn" id="cv-lb-download">
+          <span class="cv-lightbox__download-icon">↓</span>
+          <span>Télécharger</span>
+        </a>
+        <button class="cv-lightbox__close" id="cv-lb-close" aria-label="Fermer">✕</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ================================================================
+       LIGHTBOX (Ajouté pour les projets)
+       ================================================================ -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Aperçu du projet">
+    <div class="lightbox__inner">
+      <div class="lightbox__img-wrap">
+        <img src="" alt="" id="lb-img">
+      </div>
+      <div class="lightbox__meta">
+        <div>
+          <p class="lightbox__cat" id="lb-cat"></p>
+          <h2 class="lightbox__title" id="lb-title"></h2>
+          <p class="lightbox__sub" id="lb-sub"></p>
+        </div>
+        <div class="lightbox__actions">
+          <button class="lightbox__nav-btn" id="lb-prev" aria-label="Précédent">←</button>
+          <button class="lightbox__nav-btn" id="lb-next" aria-label="Suivant">→</button>
+          <button class="lightbox__close" id="lb-close" aria-label="Fermer">✕</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ================================================================
+       FOOTER
+       ================================================================ -->
+  <footer class="site-footer">
+    <div class="footer__inner">
+      <p>© 2026 Yann Iacopucci</p>
+      <p class="footer__made">Conçu avec passion &amp; amour du graphisme.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
