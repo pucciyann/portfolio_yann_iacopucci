@@ -383,33 +383,38 @@
           Un projet, une collaboration, une alternance ou juste envie de parler design&nbsp;? Écrivez-moi ou retrouvez
           mes réseaux juste en bas.
         </p>
-      <div class="contact__right">
-        <div class="contact__grid anim-reveal">
-          <!-- Case Email (Grande) -->
-          <a href="mailto:yanniacopucci@gmail.com" class="contact-card contact-card--email">
-            <span class="contact-card__num">01</span>
-            <span class="contact-card__label">E-mail</span>
-            <h3 class="contact-card__title">yanniacopucci<br>@gmail.com</h3>
-            <span class="contact-card__arrow">→</span>
-          </a>
-
-          <!-- Case LinkedIn -->
-          <a href="https://www.linkedin.com/in/yann-iacopucci-1a26ba2b7/" target="_blank" rel="noopener" class="contact-card">
-            <span class="contact-card__num">02</span>
-            <span class="contact-card__label">LinkedIn</span>
-            <h3 class="contact-card__title">Yann Iacopucci</h3>
-            <span class="contact-card__arrow">↗</span>
-          </a>
-
-          <!-- Case Instagram -->
-          <a href="https://www.instagram.com/44pucci/" target="_blank" rel="noopener" class="contact-card">
-            <span class="contact-card__num">03</span>
-            <span class="contact-card__label">Instagram</span>
-            <h3 class="contact-card__title">@44pucci</h3>
-            <span class="contact-card__arrow">↗</span>
-          </a>
-        </div>
+        <ul class="contact__links anim-reveal">
+          <li><a href="mailto:yanniacopucci@gmail.com" class="link-arrow">yanniacopucci@gmail.com <span
+                class="link-arrow__icon">→</span></a></li>
+          <li><a href="https://www.linkedin.com/in/yann-iacopucci-1a26ba2b7/" target="_blank" rel="noopener"
+              class="link-arrow">LinkedIn <span class="link-arrow__icon">↗</span></a></li>
+          <li><a href="https://www.instagram.com/44pucci/" target="_blank" rel="noopener"
+              class="link-arrow">Instagram<span class="link-arrow__icon">↗</span></a></li>
+        </ul>
       </div>
+
+      <div class="contact__right">
+        <form class="contact__form" id="contact-form" action="https://formspree.io/f/yanniacopucci@gmail.com" method="POST">
+          <div class="form-field form-field--float anim-reveal">
+            <input type="text" id="form-name" name="name" placeholder=" " required>
+            <label for="form-name">Nom</label>
+          </div>
+          <div class="form-field form-field--float anim-reveal">
+            <input type="email" id="form-email" name="_replyto" placeholder=" " required>
+            <label for="form-email">Email</label>
+          </div>
+          <div class="form-field form-field--float anim-reveal">
+            <textarea id="form-message" name="message" rows="5" placeholder=" " required></textarea>
+            <label for="form-message">Message</label>
+          </div>
+          <!-- Configuration Formspree -->
+          <input type="hidden" name="_subject" value="Nouveau message de votre Portfolio">
+          
+          <button type="submit" class="btn-send anim-reveal" id="btn-send">
+            <span class="btn-send__text">Envoyer</span>
+            <span class="btn-send__icon">→</span>
+          </button>
+        </form>
       </div>
     </div>
   </section>

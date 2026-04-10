@@ -1740,99 +1740,85 @@ body.light .menu-btn.is-active {
   gap: var(--sp-sm);
 }
 
-/* Bento Grid for Contact */
-.contact__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: .8rem;
-  width: 100%;
+/* Formulaire */
+.form-field {
+  margin-bottom: var(--sp-md);
 }
 
-.contact-card {
-  position: relative;
-  background: var(--c-surface);
-  border: 1px solid var(--c-border);
-  padding: 1.8rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-  transition: all .5s var(--ease);
-  overflow: hidden;
-  border-radius: 12px;
-  min-height: 220px;
-}
-
-/* Suppression du span email pour tenir sur une ligne */
-
-.contact-card:hover {
-  background: var(--c-bg-alt);
-  border-color: var(--c-accent);
-  transform: translateY(-5px) scale(1.01);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, .2);
-}
-
-body.light .contact-card:hover {
-  box-shadow: 0 15px 40px rgba(var(--c-accent-rgb), .1);
-}
-
-.contact-card__num {
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  font-size: .65rem;
-  font-weight: 700;
-  color: var(--c-text-dim);
-  opacity: .5;
-}
-
-.contact-card__label {
-  font-size: .65rem;
+.form-field label {
+  display: block;
+  font-size: .7rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: .2em;
-  color: var(--c-accent);
+  letter-spacing: .15em;
+  color: var(--c-text-dim);
+  margin-bottom: .4rem;
 }
 
-.contact-card__title {
+.form-field input,
+.form-field textarea {
+  width: 100%;
   font-family: var(--f-sans);
-  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
-  font-weight: 700;
+  font-size: .95rem;
   color: var(--c-white);
-  line-height: 1.1;
-  margin-top: auto;
-  letter-spacing: -.03em;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--c-border);
+  padding: .8rem 0;
+  transition: border-color .3s;
+  outline: none;
 }
 
-.contact-card__arrow {
-  position: absolute;
-  bottom: 1.5rem;
-  right: 2rem;
-  font-size: 1.5rem;
-  color: var(--c-accent);
-  opacity: 0;
-  transform: translateX(-15px);
-  transition: all .4s var(--ease);
-}
-
-.contact-card:hover {
-  background: var(--c-bg-alt);
+.form-field input:focus,
+.form-field textarea:focus {
   border-color: var(--c-accent);
-  transform: translateY(-5px) scale(1.01);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, .2);
 }
 
-.contact-card:hover .contact-card__arrow {
-  opacity: 1;
-  transform: translateX(0);
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: #444;
 }
 
-@media (max-width: 700px) {
-  .contact-card--email {
-    grid-column: span 1;
-  }
-  .contact__grid {
-    grid-template-columns: 1fr;
-  }
+body.light .form-field input::placeholder,
+body.light .form-field textarea::placeholder {
+  color: #aaa;
+}
+
+.form-field textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Bouton envoi */
+.btn-send {
+  display: inline-flex;
+  align-items: center;
+  gap: .8rem;
+  font-size: .85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--c-bg);
+  background: var(--c-accent);
+  padding: 1rem 2.5rem;
+  border-radius: 100px;
+  transition: all .4s var(--ease);
+  overflow: hidden;
+  position: relative;
+}
+
+.btn-send:hover {
+  gap: 1.5rem;
+  box-shadow: 0 0 40px rgba(var(--c-accent-rgb), .25);
+  transform: translateY(-2px);
+}
+
+.btn-send__icon {
+  transition: transform .3s var(--ease);
+}
+
+.btn-send:hover .btn-send__icon {
+  transform: translateX(4px);
 }
 
 
