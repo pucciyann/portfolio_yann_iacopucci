@@ -394,19 +394,22 @@
       </div>
 
       <div class="contact__right">
-        <form class="contact__form" id="contact-form" action="#" method="POST">
+        <form class="contact__form" id="contact-form" action="https://formspree.io/f/yanniacopucci@gmail.com" method="POST">
           <div class="form-field form-field--float anim-reveal">
             <input type="text" id="form-name" name="name" placeholder=" " required>
             <label for="form-name">Nom</label>
           </div>
           <div class="form-field form-field--float anim-reveal">
-            <input type="email" id="form-email" name="email" placeholder=" " required>
+            <input type="email" id="form-email" name="_replyto" placeholder=" " required>
             <label for="form-email">Email</label>
           </div>
           <div class="form-field form-field--float anim-reveal">
             <textarea id="form-message" name="message" rows="5" placeholder=" " required></textarea>
             <label for="form-message">Message</label>
           </div>
+          <!-- Configuration Formspree -->
+          <input type="hidden" name="_subject" value="Nouveau message de votre Portfolio">
+          
           <button type="submit" class="btn-send anim-reveal" id="btn-send">
             <span class="btn-send__text">Envoyer</span>
             <span class="btn-send__icon">→</span>

@@ -143,29 +143,61 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* ============================================================
-     7. FORMULAIRE — Feedback local
+     7. FORMULAIRE — Envoi réel via AJAX (Formspree)
      ============================================================ */
   const form = document.getElementById('contact-form');
 
   if (form) {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
       const btn = document.getElementById('btn-send');
-      const origText = btn.querySelector('.btn-send__text').textContent;
+      const btnText = btn.querySelector('.btn-send__text');
+      const btnIcon = btn.querySelector('.btn-send__icon');
+      const origText = btnText.textContent;
+      const formData = new FormData(form);
 
-      btn.querySelector('.btn-send__text').textContent = 'Envoyé ✓';
-      btn.querySelector('.btn-send__icon').textContent = '✦';
-      btn.style.background = '#22c55e';
+      // État de chargement
       btn.disabled = true;
+      btnText.textContent = 'Envoi...';
+      btn.style.opacity = '0.7';
 
-      setTimeout(() => {
-        form.reset();
-        btn.querySelector('.btn-send__text').textContent = origText;
-        btn.querySelector('.btn-send__icon').textContent = '→';
-        btn.style.background = '';
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          // Succès
+          btnText.textContent = 'Envoyé ✓';
+          btnIcon.textContent = '✦';
+          btn.style.background = '#22c55e';
+          btn.style.opacity = '1';
+          form.reset();
+
+          setTimeout(() => {
+            btnText.textContent = origText;
+            btnIcon.textContent = '→';
+            btn.style.background = '';
+            btn.disabled = false;
+          }, 4000);
+        } else {
+          throw new Error('Erreur lors de l\'envoi');
+        }
+      } catch (err) {
+        // Erreur
+        btnText.textContent = 'Échec ✕';
+        btn.style.background = '#ef4444';
         btn.disabled = false;
-      }, 3000);
+        btn.style.opacity = '1';
+
+        setTimeout(() => {
+          btnText.textContent = origText;
+          btn.style.background = '';
+        }, 3000);
+      }
     });
   }
 
