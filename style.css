@@ -1743,8 +1743,8 @@ body.light .menu-btn.is-active {
 /* Bento Grid for Contact */
 .contact__grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.2rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: .8rem;
   width: 100%;
 }
 
@@ -1752,18 +1752,17 @@ body.light .menu-btn.is-active {
   position: relative;
   background: var(--c-surface);
   border: 1px solid var(--c-border);
-  padding: 2.2rem;
+  padding: 1.8rem;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.2rem;
   transition: all .5s var(--ease);
   overflow: hidden;
   border-radius: 12px;
+  min-height: 220px;
 }
 
-.contact-card--email {
-  grid-column: span 2;
-}
+/* Suppression du span email pour tenir sur une ligne */
 
 .contact-card:hover {
   background: var(--c-bg-alt);
