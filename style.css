@@ -1740,85 +1740,101 @@ body.light .menu-btn.is-active {
   gap: var(--sp-sm);
 }
 
-/* Formulaire */
-.form-field {
-  margin-bottom: var(--sp-md);
-}
-
-.form-field label {
-  display: block;
-  font-size: .7rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: .15em;
-  color: var(--c-text-dim);
-  margin-bottom: .4rem;
-}
-
-.form-field input,
-.form-field textarea {
+/* Social links big layout */
+.contact__social-big {
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  font-family: var(--f-sans);
-  font-size: .95rem;
-  color: var(--c-white);
-  background: transparent;
-  border: none;
+}
+
+.contact__social-item {
+  border-top: 1px solid var(--c-border);
+}
+
+.contact__social-item:last-child {
   border-bottom: 1px solid var(--c-border);
-  padding: .8rem 0;
-  transition: border-color .3s;
-  outline: none;
 }
 
-.form-field input:focus,
-.form-field textarea:focus {
-  border-color: var(--c-accent);
-}
-
-.form-field input::placeholder,
-.form-field textarea::placeholder {
-  color: #444;
-}
-
-body.light .form-field input::placeholder,
-body.light .form-field textarea::placeholder {
-  color: #aaa;
-}
-
-.form-field textarea {
-  resize: vertical;
-  min-height: 100px;
-}
-
-/* Bouton envoi */
-.btn-send {
-  display: inline-flex;
+.social-link-big {
+  display: grid;
+  grid-template-columns: 140px 1fr auto;
   align-items: center;
-  gap: .8rem;
-  font-size: .85rem;
+  padding: 2.5rem 0;
+  transition: all .5s var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+
+.social-link-big__label {
+  font-size: .75rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: .12em;
-  color: var(--c-bg);
-  background: var(--c-accent);
-  padding: 1rem 2.5rem;
-  border-radius: 100px;
+  letter-spacing: .2em;
+  color: var(--c-text-dim);
+}
+
+.social-link-big__val {
+  font-family: var(--f-serif);
+  font-size: clamp(1.8rem, 4vw, 3.5rem);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--c-white);
+  transition: transform .5s var(--ease), color .4s;
+}
+
+.social-link-big__arrow {
+  font-size: 2rem;
+  color: var(--c-accent);
+  opacity: 0;
+  transform: translateX(-20px);
   transition: all .4s var(--ease);
-  overflow: hidden;
-  position: relative;
 }
 
-.btn-send:hover {
-  gap: 1.5rem;
-  box-shadow: 0 0 40px rgba(var(--c-accent-rgb), .25);
-  transform: translateY(-2px);
+.social-link-big:hover {
+  padding-left: 1.5rem;
 }
 
-.btn-send__icon {
-  transition: transform .3s var(--ease);
+.social-link-big:hover .social-link-big__val {
+  color: var(--c-accent);
+  transform: translateX(10px);
 }
 
-.btn-send:hover .btn-send__icon {
-  transform: translateX(4px);
+.social-link-big:hover .social-link-big__arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Background hover effect */
+.social-link-big::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--c-accent);
+  opacity: 0;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform .5s var(--ease), opacity .5s;
+  z-index: -1;
+  border-radius: 4px;
+}
+
+/* 
+   Note: On a retiré le background hover pour un look plus épuré 
+   mais on garde la transition de couleur
+*/
+
+@media (max-width: 800px) {
+  .social-link-big {
+    grid-template-columns: 1fr auto;
+    padding: 1.5rem 0;
+  }
+  .social-link-big__label {
+    grid-column: 1 / -1;
+    margin-bottom: .5rem;
+  }
+  .social-link-big__val {
+    font-size: 1.5rem;
+  }
 }
 
 
