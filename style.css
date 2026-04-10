@@ -1740,100 +1740,138 @@ body.light .menu-btn.is-active {
   gap: var(--sp-sm);
 }
 
-/* Social links big layout */
-.contact__social-big {
-  display: flex;
-  flex-direction: column;
+/* Bento Grid for Contact */
+.contact__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
   width: 100%;
 }
 
-.contact__social-item {
-  border-top: 1px solid var(--c-border);
-}
-
-.contact__social-item:last-child {
-  border-bottom: 1px solid var(--c-border);
-}
-
-.social-link-big {
-  display: grid;
-  grid-template-columns: 140px 1fr auto;
-  align-items: center;
-  padding: 2.5rem 0;
-  transition: all .5s var(--ease);
+.contact-card {
   position: relative;
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  padding: 2.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  transition: all .5s var(--ease);
   overflow: hidden;
+  border-radius: 12px;
 }
 
-.social-link-big__label {
-  font-size: .75rem;
+.contact-card--email {
+  grid-column: span 2;
+}
+
+.contact-card:hover {
+  background: var(--c-bg-alt);
+  border-color: var(--c-accent);
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, .2);
+}
+
+body.light .contact-card:hover {
+  box-shadow: 0 15px 40px rgba(var(--c-accent-rgb), .1);
+}
+
+.contact-card__num {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-size: .65rem;
+  font-weight: 700;
+  color: var(--c-text-dim);
+  opacity: .5;
+}
+
+.contact-card__label {
+  font-size: .65rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: .2em;
-  color: var(--c-text-dim);
+  color: var(--c-accent);
 }
 
-.social-link-big__val {
+.contact-card__title {
   font-family: var(--f-serif);
-  font-size: clamp(1.8rem, 4vw, 3.5rem);
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
   font-style: italic;
   font-weight: 400;
   color: var(--c-white);
-  transition: transform .5s var(--ease), color .4s;
+  line-height: 1.1;
+  margin-top: auto;
 }
 
-.social-link-big__arrow {
-  font-size: 2rem;
+.contact-card__arrow {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 2rem;
+  font-size: 1.5rem;
   color: var(--c-accent);
   opacity: 0;
-  transform: translateX(-20px);
+  transform: translateX(-15px);
   transition: all .4s var(--ease);
 }
 
-.social-link-big:hover {
-  padding-left: 1.5rem;
-}
-
-.social-link-big:hover .social-link-big__val {
-  color: var(--c-accent);
-  transform: translateX(10px);
-}
-
-.social-link-big:hover .social-link-big__arrow {
+.contact-card:hover .contact-card__arrow {
   opacity: 1;
   transform: translateX(0);
 }
 
-/* Background hover effect */
-.social-link-big::before {
-  content: '';
+/* Sticker badge inside card */
+.contact-card__badge-inline {
   position: absolute;
-  inset: 0;
+  top: 40%;
+  right: -20px;
   background: var(--c-accent);
-  opacity: 0;
-  transform: scaleY(0);
-  transform-origin: bottom;
-  transition: transform .5s var(--ease), opacity .5s;
-  z-index: -1;
-  border-radius: 4px;
+  color: var(--c-bg);
+  font-size: .6rem;
+  font-weight: 700;
+  padding: .4rem 2rem;
+  transform: rotate(45deg);
+  letter-spacing: .1em;
+  pointer-events: none;
 }
 
-/* 
-   Note: On a retiré le background hover pour un look plus épuré 
-   mais on garde la transition de couleur
-*/
+/* Floating Stickers */
+.contact__stickers {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+}
 
-@media (max-width: 800px) {
-  .social-link-big {
-    grid-template-columns: 1fr auto;
-    padding: 1.5rem 0;
+.contact__sticker {
+  position: absolute;
+  padding: .6rem 1.2rem;
+  border-radius: 100px;
+  font-size: .65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  border: 1px solid var(--c-accent);
+  color: var(--c-accent);
+  background: transparent;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .2);
+  transition: transform .3s var(--ease);
+}
+
+.sticker--1 { top: 5%; right: 5%; transform: rotate(15deg); }
+.sticker--2 { bottom: 20%; right: 40%; transform: rotate(-10deg); color: var(--c-bg); background: var(--c-accent); }
+.sticker--3 { top: 50%; right: -2%; transform: rotate(-5deg); border-color: var(--c-text); color: var(--c-text); }
+
+@media (max-width: 700px) {
+  .contact-card--email {
+    grid-column: span 1;
   }
-  .social-link-big__label {
-    grid-column: 1 / -1;
-    margin-bottom: .5rem;
+  .contact__grid {
+    grid-template-columns: 1fr;
   }
-  .social-link-big__val {
-    font-size: 1.5rem;
+  .contact__stickers {
+    display: none;
   }
 }
 
