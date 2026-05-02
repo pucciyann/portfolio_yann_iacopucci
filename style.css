@@ -2923,7 +2923,6 @@ body.light .gallery-filters {
   font-size: .8rem;
   color: rgba(255, 255, 255, .4);
   line-height: 1.5;
-  display: none;
 }
 
 .lightbox2__desc {
@@ -2931,7 +2930,6 @@ body.light .gallery-filters {
   color: rgba(255, 255, 255, .3);
   line-height: 1.6;
   margin-top: .5rem;
-  display: none;
 }
 
 /* Gallery grid for branding */
