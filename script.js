@@ -289,13 +289,28 @@ document.addEventListener('DOMContentLoaded', () => {
                              item.querySelector('.hscroll__card-title')?.textContent?.trim() || 
                              '';
       }
+      
+      // On affiche les descriptions uniquement pour Mojo et Kenzi (Shawtie & Demi)
+      const currentTitle = lbTitle ? lbTitle.textContent : '';
+      const isMojoOrKenzi = currentTitle === 'Mojo' || currentTitle === 'Shawtie & Demi';
+
       if (lbSub) {
-        lbSub.textContent = item.dataset.sub || 
-                           item.querySelector('.gallery__item-sub')?.textContent?.trim() || 
-                           item.querySelector('.hscroll__card-desc')?.textContent?.trim() || 
-                           '';
+        if (isMojoOrKenzi) {
+          lbSub.textContent = item.dataset.sub || 
+                             item.querySelector('.gallery__item-sub')?.textContent?.trim() || 
+                             item.querySelector('.hscroll__card-desc')?.textContent?.trim() || 
+                             '';
+        } else {
+          lbSub.textContent = '';
+        }
       }
-      if (lbDesc) lbDesc.textContent = item.dataset.desc || '';
+      if (lbDesc) {
+        if (isMojoOrKenzi) {
+          lbDesc.textContent = item.dataset.desc || '';
+        } else {
+          lbDesc.textContent = '';
+        }
+      }
       if (lbCounter) lbCounter.textContent = `${currentLbIndex + 1} / ${items.length}`;
 
       // Gallery images (branding projects)
