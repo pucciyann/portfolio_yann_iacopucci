@@ -24,18 +24,18 @@ document.addEventListener('DOMContentLoaded', () => {
   // Restaurer la préférence enregistrée
   const savedTheme = localStorage.getItem('theme');
   if (savedTheme === 'dark') {
-    document.body.classList.remove('light');
+    document.body.classList.add('dark');
     if (themeIcon) themeIcon.textContent = '☀';
   } else {
-    document.body.classList.add('light');
+    document.body.classList.remove('dark');
     if (themeIcon) themeIcon.textContent = '☾';
   }
 
   if (themeToggle) {
     themeToggle.addEventListener('click', () => {
-      const isLight = document.body.classList.toggle('light');
-      themeIcon.textContent = isLight ? '☾' : '☀';
-      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+      const isDark = document.body.classList.toggle('dark');
+      themeIcon.textContent = isDark ? '☀' : '☾';
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
     });
   }
 
