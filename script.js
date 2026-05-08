@@ -23,9 +23,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Restaurer la préférence enregistrée
   const savedTheme = localStorage.getItem('theme');
-  if (savedTheme === 'light') {
+  if (savedTheme === 'dark') {
+    document.body.classList.remove('light');
+    if (themeIcon) themeIcon.textContent = '☀';
+  } else {
     document.body.classList.add('light');
-    themeIcon.textContent = '☾';
+    if (themeIcon) themeIcon.textContent = '☾';
   }
 
   if (themeToggle) {
