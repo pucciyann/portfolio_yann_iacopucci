@@ -1832,7 +1832,7 @@ body.dark .form-field textarea::placeholder {
    ================================================================ */
 .site-header--page {
   mix-blend-mode: normal;
-  background: rgba(10, 10, 10, .85);
+  background: rgba(245, 243, 239, .85);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--c-border);
