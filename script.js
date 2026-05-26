@@ -246,6 +246,15 @@ document.addEventListener('DOMContentLoaded', () => {
       return [];
     }
 
+    // --- Helper: convert any image path to its thumb version ---
+    function toThumbPath(src) {
+      if (!src) return src;
+      // Already a thumb path
+      if (src.includes('/thumb/')) return src;
+      // Convert assets/img/full/xxx or assets/img/xxx to assets/img/thumb/xxx
+      return src.replace(/assets\/img\/(?:full\/)?/, 'assets/img/thumb/');
+    }
+
     // --- Build thumbnails ---
     function buildThumbnails() {
       if (!lbThumbstrip) return;
@@ -254,7 +263,8 @@ document.addEventListener('DOMContentLoaded', () => {
       items.forEach((item, i) => {
         const thumb = document.createElement('img');
         thumb.className = 'lightbox2__thumb';
-        thumb.src = item.dataset.img || item.querySelector('img')?.src || '';
+        const rawSrc = item.querySelector('img')?.src || item.dataset.img || '';
+        thumb.src = toThumbPath(rawSrc);
         thumb.alt = item.dataset.title || '';
         thumb.loading = 'lazy';
         if (i === currentLbIndex) thumb.classList.add('is-active');
